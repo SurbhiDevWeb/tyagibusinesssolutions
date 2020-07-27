@@ -355,11 +355,14 @@
               </div>
           </div>
           <div class="col-lg-4 mx-auto">
-            <form id="contact-form mt-auto" method="post" action="">
+            <form id="contact-form mt-auto" method="post" data-netlify="true">
               <div class="messages"></div>
               <div class="controls">
                 <div class="row">
                   <div class="col-md-6">
+                    <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
                     <input type="text" name="name" placeholder="Your firstname *" required="required" class="form-control">
                   </div>
                   <div class="col-md-6">
