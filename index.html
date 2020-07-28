@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
     <meta name="robots" content="all,follow">
-    <!-- Compiled and minified CSS--> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified CSS
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--> 
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
@@ -297,7 +297,7 @@
 					      		        <div id="form-message-success" class="mb-4">
                                             We Are Here To Help!
                                         </div>
-										<form method="POST" id="contactForm" name="contactForm" action="/#Contact" class="contactForm" netlify-honeypot="bot-field" data-netlify="true">
+										<form method="POST" id="contactForm" name="contactForm" action="/#Contact" class="contactForm needs-validation" netlify-honeypot="bot-field" data-netlify="true">
 											<div class="row">
                                                 
 												<div class="col-md-6">
@@ -306,29 +306,31 @@
                                                     </p>
 													<div class="form-group input-field">
 														<label class="label" for="name">Full Name</label>
-														<input type="text" class="form-control validate" name="name" id="name" placeholder="Name">
-                                                         <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+														<input type="text" class="validate form-control" name="name" id="name" placeholder="Name" required>
+                                                         <div class="invalid-feedback">
+                                                            Please provide a valid city.
+                                                         </div>
 													</div>
                                                     
 												</div>
 												<div class="col-md-6"> 
 													<div class="form-group input-field">
 														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control validate" name="email" id="email" placeholder="Email">
+														<input type="email" class="form-control validate" name="email" id="email" placeholder="Email" required>
                                                         <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group input-field">
 														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control validate" name="subject" id="subject" placeholder="Subject">
+														<input type="text" class="form-control validate" name="subject" id="subject" placeholder="Subject" required>
                                                          <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group input-field">
 														<label class="label" for="message">Message</label>
-														<textarea name="message" class="form-control validate" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+														<textarea name="message" class="form-control validate" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
                                                         <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
@@ -343,6 +345,25 @@
 									</div>
 								</div>
                                     <script>
+                                    (function() {
+                                        'use strict';
+                                        window.addEventListener('load', function() {
+                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                        var forms = document.getElementsByClassName('needs-validation');
+                                        // Loop over them and prevent submission
+                                        var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                        if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                        }, false);
+                                        });
+                                        }, false);
+                                        })();    
+                                        
+                                        
                                     
                                     let testForm = document.querySelector("#contactForm");
                                     
@@ -362,8 +383,7 @@
                                         .then(res => {
                                             if(res) {
                                                 M.toast({
-                                                    html: 'Thank you for your submission!',
-                                                    classes: 'pulse'
+                                                    html: 'Thank you for your submission!'
                                                 });
                                             }
                                         });
