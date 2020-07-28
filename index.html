@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
     <!-- animate.css-->
     <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- ajax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Leaflet CSS - For the map-->
@@ -34,7 +36,6 @@
   </head>
   <body>
       
-      
       <div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -42,11 +43,12 @@
 						<div class="bg-wrap">
 							<div class="row">
 								<div class="col-md-6 d-flex align-items-center">
-									<p class="mb-0 phone pl-md-2">
-										<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a> 
-										<a href="#"><span class="fa fa-envelope mr-1"></span> youremail@email.com</a>
-									</p>
+									<p class="mb-0 pl-md-2 phone">
+										<span class="fa fa-phone-alt mr-1"></span><a href="tel:+918700533996" class="mr-2">+91-8700533996</a> 
+										<span class="fa fa-envelope mr-1 sm-icon"></span><a href="mailto:tyagisurbhi15@gmail.com">info@tyagibusinesssolutions.com</a>
+                                    </p>
 								</div>
+                                
 								<div class="col-md-6 d-flex justify-content-md-end">
 									<div class="social-media">
 						    		<p class="mb-0 d-flex">
@@ -66,13 +68,13 @@
       
     <!-- Reference item-->
     <!-- navbar-->
-    <header class="header">
+    <header id="top" class="header">
       <nav class="navbar navbar-expand-lg ">
         <div class="container"><img src="img/logo.jpg" class="logo" alt="TBS">
           <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span class="fa fa-bars"></span></button>
           <div id="navbarcollapse" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="#intro" class="nav-link link-scroll">Home</a></li>
+              <li class="nav-item"><a href="#top" class="nav-link link-scroll">Home</a></li>
               <li class="nav-item"><a href="#about" class="nav-link link-scroll">About Us</a></li>
               <li class="nav-item"><a href="services.html" class="nav-link link-scroll">Services</a></li>
               <li class="nav-item"><a href="tyagibusinesssolutions.com" class="nav-link link-scroll">Blog</a></li>
@@ -284,7 +286,7 @@
         </div>
       </div>
     </section>
-    <!-- Contact-->
+    <!-- Contact
     <section id="contact" data-animate="bounceIn" class="contact-section contact">
       <div class="container">
         <header class="text-center">
@@ -374,6 +376,130 @@
           </div>
         </div>
       </div>
+    </section>-->
+      <section id="Contact" class="ftco-section cont">
+    	<div class="container">
+    		<div class="row justify-content-center">
+					<div class="col-md-12">
+						<div class="wrapper">
+							<div class="row no-gutters">
+								<div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+									<div class="contact-wrap w-100 p-md-5 p-4">
+										<h3 class="mb-4">Drop Us a Message</h3>
+										<div id="form-message-warning" class="mb-4"></div> 
+					      		        <div id="form-message-success" class="mb-4">
+                                            We Are Here To Help!
+                                        </div>
+										<form method="POST" id="contactForm" name="contactForm" action="/#Contact" class="contactForm" netlify-honeypot="bot-field" data-netlify="true">
+											<div class="row">
+                                                
+												<div class="col-md-6">
+                                                    <p style="display: none;">
+                                                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                                                    </p>
+													<div class="form-group">
+														<label class="label" for="name">Full Name</label>
+														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+													</div>
+												</div>
+												<div class="col-md-6"> 
+													<div class="form-group">
+														<label class="label" for="email">Email Address</label>
+														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="subject">Subject</label>
+														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="label" for="#">Message</label>
+														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<input type="submit" value="Send" class="btn site-btn btn-pro">
+														<div class="submit"></div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+                                <script>
+                                    let testForm = document.querySelector("contactForm");
+                                    
+                                    testForm.addEventListener('submit', e => {
+                                        e.preventDefault();
+                                        
+                                        const formData = new FormData(testForm);
+                                        fetch(testForm.getAttribute('action'), {
+                                            method: 'POST',
+                                            headers: {
+                                                'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+                                                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                                            },
+                                            body: new URLSearchParams(formData).toString()
+                                        })
+                                        .then(res => {
+                                            if(res) {
+                                                M.toast({
+                                                    html: 'Thank you for your submission!',
+                                                    classes: 'pulse'
+                                                });
+                                            }
+                                        });
+                                    });
+                                
+                                </script>
+                                
+								<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+									<div class="info-wrap w-100 p-md-5 p-4">
+										<h3>Let's get in touch</h3>
+										<p class="mb-4">We're open for any suggestion or just to have a chat</p>
+					        	<div class="dbox w-100 d-flex align-items-start">
+					        		<div class="icon d-flex align-items-center justify-content-center">
+					        			<span class="fa fa-map-marker"></span>
+					        		</div>
+					        		<div class="text pl-3">
+						            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+						          </div>
+					          </div>
+					        	<div class="dbox w-100 d-flex align-items-center">
+					        		<div class="icon d-flex align-items-center justify-content-center">
+					        			<span class="fa fa-phone-alt"></span>
+					        		</div>
+					        		<div class="text pl-3">
+						            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+						          </div>
+					          </div>
+					        	<div class="dbox w-100 d-flex align-items-center">
+					        		<div class="icon d-flex align-items-center justify-content-center">
+					        			<span class="fa fa-paper-plane"></span>
+					        		</div>
+					        		<div class="text pl-3">
+						            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+						          </div>
+					          </div>
+					        	<div class="dbox w-100 d-flex align-items-center">
+					        		<div class="icon d-flex align-items-center justify-content-center">
+					        			<span class="fa fa-globe"></span>
+					        		</div>
+					        		<div class="text pl-3">
+						            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+						          </div>
+					          </div>
+				          </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+    	</div>
     </section>
   
     <footer class="main-footer">
@@ -398,6 +524,8 @@
     <script src="vendor/jquery.counterup/jquery.counterup.js"></script>
     <script src="https://kit.fontawesome.com/6e82f6a13b.js" crossorigin="anonymous"></script>
     <script src="js/front.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 
   </body>
 </html>
