@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
     <meta name="robots" content="all,follow">
-    <!-- Compiled and minified CSS 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <!-- Compiled and minified CSS--> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
@@ -297,43 +297,39 @@
 					      		        <div id="form-message-success" class="mb-4">
                                             We Are Here To Help!
                                         </div>
-										<form method="POST" id="contactForm" name="contactForm" action="/#Contact" class="contactForm needs-validation" netlify-honeypot="bot-field" data-netlify="true" novalidate>
+										<form method="POST" id="contactForm" name="contactForm" action="/#Contact" class="contactForm" netlify-honeypot="bot-field" data-netlify="true">
 											<div class="row">
                                                 
 												<div class="col-md-6">
                                                     <p style="display: none;">
                                                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                                                     </p>
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="name">Full Name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-                                                        <div class="invalid-feedback">
-                                                          Please fill your name!
-                                                        </div>
+														<input type="text" class="form-control validate" name="name" id="name" placeholder="Name">
+                                                         <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
 													</div>
+                                                    
 												</div>
 												<div class="col-md-6"> 
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                                                        <div class="invalid-feedback">
-                                                          Please enter a valid email!
-                                                        </div>
+														<input type="email" class="form-control validate" name="email" id="email" placeholder="Email">
+                                                        <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+														<input type="text" class="form-control validate" name="subject" id="subject" placeholder="Subject">
+                                                         <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="message">Message</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
-                                                        <div class="invalid-feedback">
-                                                          Please enter your message!
-                                                        </div>
+														<textarea name="message" class="form-control validate" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+                                                        <span class="helper-text" data-error="Please fill your name!"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
@@ -346,27 +342,7 @@
 										</form>
 									</div>
 								</div>
-                                <script>
-                                    (function() {
-                                        'use strict';
-                                        window.addEventListener('load', function() {
-                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                        var forms = document.getElementsByClassName('needs-validation');
-                                        // Loop over them and prevent submission
-                                        var validation = Array.prototype.filter.call(forms, function(form) {
-                                        form.addEventListener('submit', function(event) {
-                                        if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                        }
-                                        form.classList.add('was-validated');
-                                        }, false);
-                                        });
-                                        }, false);
-                                        })();
-                                </script>
-<!--
-                                <script>
+                                    <script>
                                     
                                     let testForm = document.querySelector("#contactForm");
                                     
@@ -395,7 +371,7 @@
                                 
                                 </script>
                                 
--->
+
 								<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
 									<div class="info-wrap w-100 p-md-5 p-4">
 										<h3>Let's get in touch</h3>
@@ -463,7 +439,7 @@
     <script src="vendor/jquery.counterup/jquery.counterup.js"></script>
     <script src="https://kit.fontawesome.com/6e82f6a13b.js" crossorigin="anonymous"></script>
     <script src="js/front.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
 
   </body>
