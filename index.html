@@ -313,7 +313,7 @@
 												<div class="col-md-6"> 
 													<div class="form-group input-field">
 														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+														<input type="email" class="form-control validate" name="email" id="email" placeholder="Email">
                                                          <span class="helper-text" data-error="Please Enter Your Email" data-success="right"></span>
 													</div>
 												</div>
@@ -344,6 +344,7 @@
                                 <script>
                                     
                                     let testForm = document.querySelector("#contactForm");
+                                    
                                     
                                     testForm.addEventListener('submit', e => {
                                         e.preventDefault();
