@@ -108,7 +108,17 @@ body {
     border-radius: 0;
   }
 }
+.cont .result {
+  display: none;
+}
 
+.cont .active {
+  display: block;
+}
+
+.cont .inactive {
+  display: none;
+}
 
 
 /**************************************************/
