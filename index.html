@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Tyagi Business Solutions - Chartered Accountant | Tax Consultant in India</title>
+    <title>Tyagi Business Solutions - Chartered Accountant | Tax Consultant in India</title>
     <meta name="Keywords" content="Chartered accountant firm, Accounting outsourcing companies in India, Tax Consultant in India, Starting Business in India">
     <meta name="description" content="We are a premier accounting firm offering professional services in areas of accounting, auditing & assurance, taxation & other regulatory areas and consultancy & outsourcing services to domestic and multinational entities.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
     <meta name="robots" content="all,follow">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
@@ -24,8 +26,6 @@
     <link rel="stylesheet" href="vendor/animate.css/animate.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <!-- Leaflet CSS - For the map-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -304,27 +304,31 @@
                                                     <p style="display: none;">
                                                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                                                     </p>
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="name">Full Name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+														<input type="text" class="form-control validate" name="name" id="name" placeholder="Name">
+                                                         <span class="helper-text" data-error="Please Enter Your Name" data-success="right"></span>
 													</div>
 												</div>
 												<div class="col-md-6"> 
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="email">Email Address</label>
 														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                                         <span class="helper-text" data-error="Please Enter Your Email" data-success="right"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
+													<div class="form-group input-field">
 														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+														<input type="text" class="form-control validate" name="subject" id="subject" placeholder="Subject">
+                                                         <span class="helper-text" data-error="Please Enter Subject" data-success="right"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">Message</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+													<div class="form-group input-field">
+														<label class="label" for="message">Message</label>
+														<textarea name="message" class="form-control validate" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+                                                         <span class="helper-text" data-error="Please Enter Meassage" data-success="right"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
@@ -338,6 +342,7 @@
 									</div>
 								</div>
                                 <script>
+                                    
                                     let testForm = document.querySelector("#contactForm");
                                     
                                     testForm.addEventListener('submit', e => {
