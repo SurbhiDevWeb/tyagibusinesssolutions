@@ -40,6 +40,31 @@ $(function () {
 
 
     /* =========================================
+     * back to top
+     *  =======================================*/
+     $('body').append('<a id="go-top" data-scroll class="go-top-hide" href="#"><i class="fa fa-cloud-upload"></i></a>');
+    var scrollBack = $('#go-top, .go-to-hide');
+    $window.on('scroll', function() {
+      if ($(this).scrollTop() > 250) {
+        scrollBack
+          .addClass('go-top-show')
+          .removeClass('go-top-hide');
+      } else {
+        scrollBack
+          .addClass('go-top-hide')
+          .removeClass('go-top-show');
+      }
+    });
+    scrollBack.on('click', function(e) {
+      e.preventDefault();
+      $('html,body').animate({
+        scrollTop: 0
+      }, 400);
+    });
+  });
+    
+
+    /* =========================================
      * testimonial slider
      *  =======================================*/
 
@@ -122,37 +147,9 @@ $(function () {
         $(this).removeClass($(this).data('animate-hover'));
     });
 
-    /* =========================================
-     * for demo purpose
-     *  =======================================*/
+   
 
-    var stylesheet = $('link#theme-stylesheet');
-    $("<link id='new-stylesheet' rel='stylesheet'>").insertAfter(stylesheet);
-    var alternateColour = $('link#new-stylesheet');
 
-    if ($.cookie("theme_csspath")) {
-        alternateColour.attr("href", $.cookie("theme_csspath"));
-    }
-
-    $("#colour").change(function () {
-
-        if ($(this).val() !== '') {
-
-            var theme_csspath = 'css/style.' + $(this).val() + '.css';
-
-            alternateColour.attr("href", theme_csspath);
-
-            $.cookie("theme_csspath", theme_csspath, {
-                expires: 365,
-                path: document.URL.substr(0, document.URL.lastIndexOf('/'))
-            });
-
-        }
-
-        return false;
-    });
-
-});
 
 
 
