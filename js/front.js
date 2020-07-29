@@ -38,32 +38,7 @@ $(function () {
         offset: 80
     });
 
-
-    /* =========================================
-     * back to top
-     *  =======================================*/
-     $('body').append('<a id="go-top" data-scroll class="go-top-hide" href="#"><i class="fa fa-cloud-upload"></i></a>');
-    var scrollBack = $('#go-top, .go-to-hide');
-    $window.on('scroll', function() {
-      if ($(this).scrollTop() > 250) {
-        scrollBack
-          .addClass('go-top-show')
-          .removeClass('go-top-hide');
-      } else {
-        scrollBack
-          .addClass('go-top-hide')
-          .removeClass('go-top-show');
-      }
-    });
-    scrollBack.on('click', function(e) {
-      e.preventDefault();
-      $('html,body').animate({
-        scrollTop: 0
-      }, 400);
-    });
-  });
     
-
     /* =========================================
      * testimonial slider
      *  =======================================*/
@@ -148,7 +123,7 @@ $(function () {
     });
 
    
-
+});
 
 
 
